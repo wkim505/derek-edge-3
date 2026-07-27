@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-quicklinks",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-07-27T03:38:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.doc.govt.nz/",
+    "originPage": "DOC homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "background image + title + quicklink buttons",
+    "buttonCount": 13,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "landing/home pages with a full-width hero image",
+      "pages that surface many top-level navigation shortcuts as buttons",
+      "section/gateway pages with an overlay title and quick links"
+    ],
+    "notSuitableFor": [
+      "text-only intros with no background image",
+      "heroes with a single primary CTA only",
+      "compact banners"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-27T03:38:00.000Z"
+  }
+}

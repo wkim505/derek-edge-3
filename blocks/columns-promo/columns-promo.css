@@ -1,0 +1,158 @@
+/* columns-promo — DOC homepage "content top": promo feature card + blog widget.
+   Values extracted from source computed styles (see migration-work/columns-promo-extracted.css). */
+
+/* Block container: white panel with 16px inner padding.
+   Mobile-first: single column; two equal columns at desktop. */
+.columns-promo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 16px;
+  background-color: var(--doc-card-bg);
+}
+
+/* The single authored row spans the grid; its cells become the grid items. */
+.columns-promo > div {
+  display: contents;
+}
+
+/* Each cell = a panel (promo card / blog widget): vertical flow, white bg. */
+.columns-promo-feature,
+.columns-promo-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: var(--doc-card-bg);
+}
+
+/* Images fill the width of their container. */
+.columns-promo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------------------
+   Dark-green header bars (shared by feature title + blog title).
+   --------------------------------------------------------------- */
+.columns-promo-feature-title,
+.columns-promo-widget-title {
+  margin: 0;
+  padding: 8px 16px;
+  background-color: var(--text-color);
+  font-family: var(--heading-font-family);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 48px;
+  color: #fff;
+}
+
+.columns-promo-feature-title a:any-link {
+  display: block;
+  font: inherit;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------
+   LEFT: promo feature card.
+   --------------------------------------------------------------- */
+
+/* Feature image: edge-to-edge on top, ~1.53 aspect ratio. */
+.columns-promo-feature-image {
+  margin: 0;
+  line-height: 0;
+}
+
+.columns-promo-feature-image img {
+  aspect-ratio: 452 / 295;
+}
+
+/* Description paragraph. */
+.columns-promo-feature-desc {
+  margin: 16px 0;
+  padding: 0 16px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* ---------------------------------------------------------------
+   RIGHT: blog widget.
+   --------------------------------------------------------------- */
+
+/* Post title. */
+.columns-promo-post-title {
+  margin: 24px 16px 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: var(--text-color);
+}
+
+.columns-promo-post-title a:any-link {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Thumbnail image: fixed size, floated so the excerpt wraps beside it. */
+.columns-promo-thumb {
+  margin: 12px 16px 0;
+  float: left;
+  width: 210px;
+  line-height: 0;
+}
+
+.columns-promo-thumb img {
+  width: 210px;
+  height: 140px;
+  aspect-ratio: 210 / 140;
+}
+
+/* Excerpt paragraph (wraps to the right of the thumbnail). */
+.columns-promo-excerpt {
+  margin: 12px 16px 16px;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* "More conservation blog posts" CTA — dark green, square, white text. */
+.columns-promo-cta {
+  clear: both;
+  margin: 0;
+  padding: 12px 16px;
+}
+
+.columns-promo-cta a:any-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: 0;
+  background-color: var(--doc-green-button, rgb(25 64 54));
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.columns-promo-cta a:hover {
+  background-color: var(--doc-green-dark);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ---------------------------------------------------------------
+   Desktop: two equal columns side by side.
+   --------------------------------------------------------------- */
+@media (width >= 900px) {
+  .columns-promo {
+    grid-template-columns: 1fr 1fr;
+  }
+}
