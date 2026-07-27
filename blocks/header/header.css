@@ -1,52 +1,36 @@
-/* header and nav layout */
+/* DOC header — gold accent strip above a solid dark-green nav bar */
 header .nav-wrapper {
-  background-color: var(--background-color);
   width: 100%;
   z-index: 2;
-  position: fixed;
+  position: relative;
+  background-color: var(--doc-green-button, rgb(25 64 54));
+  border-top: 20px solid rgb(255 197 29);
+  color: #fff;
 }
 
 header nav {
   box-sizing: border-box;
   display: grid;
   grid-template:
-    'hamburger brand tools' var(--nav-height)
+    'hamburger brand tools' auto
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
-  gap: 0 24px;
+  gap: 0 16px;
   margin: auto;
-  max-width: 1248px;
-  height: var(--nav-height);
-  padding: 0 24px;
+  max-width: 1264px;
+  min-height: 68px;
+  padding: 8px 24px;
   font-family: var(--body-font-family);
+  color: #fff;
 }
 
 header nav[aria-expanded='true'] {
   grid-template:
-    'hamburger brand' var(--nav-height)
+    'hamburger brand' auto
     'sections sections' 1fr
-    'tools tools' var(--nav-height) / auto 1fr;
+    'tools tools' auto / auto 1fr;
   overflow-y: auto;
   min-height: 100dvh;
-}
-
-@media (width >= 900px) {
-  header .nav-wrapper {
-    position: relative;
-  }
-
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    gap: 0 32px;
-    max-width: 1264px;
-    padding: 0 32px;
-  }
-
-  header nav[aria-expanded='true'] {
-    min-height: 0;
-    overflow: visible;
-  }
 }
 
 header nav p {
@@ -56,9 +40,10 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none;
 }
 
-/* hamburger */
+/* hamburger (mobile) */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -72,11 +57,9 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
-  overflow: initial;
-  text-overflow: initial;
-  white-space: initial;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,
@@ -85,7 +68,7 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
+  width: 22px;
 }
 
 header nav .nav-hamburger-icon::before,
@@ -103,17 +86,10 @@ header nav[aria-expanded='false'] .nav-hamburger-icon::after {
   background: currentcolor;
 }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon::before {
-  top: -6px;
-}
+header nav[aria-expanded='false'] .nav-hamburger-icon::before { top: -7px; }
+header nav[aria-expanded='false'] .nav-hamburger-icon::after { top: 7px; }
 
-header nav[aria-expanded='false'] .nav-hamburger-icon::after {
-  top: 6px;
-}
-
-header nav[aria-expanded='true'] .nav-hamburger-icon {
-  height: 22px;
-}
+header nav[aria-expanded='true'] .nav-hamburger-icon { height: 22px; }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::before,
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
@@ -124,6 +100,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   width: 24px;
   height: 2px;
   border-radius: 2px;
+  transition: transform 0.2s ease;
 }
 
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
@@ -132,141 +109,329 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   transform: rotate(-45deg);
 }
 
-@media (width >= 900px) {
-  header nav .nav-hamburger {
-    display: none;
-    visibility: hidden;
-  }
-}
-
-/* brand */
+/* brand (logo) */
 header .nav-brand {
   grid-area: brand;
-  flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
-  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 150px;
   height: auto;
 }
 
-/* sections */
+/* sections (main nav) */
 header nav .nav-sections {
   grid-area: sections;
-  flex: 1 1 auto;
   display: none;
   visibility: hidden;
 }
 
+/* mobile: full-width flush menu items (break out of nav horizontal padding) */
 header nav[aria-expanded='true'] .nav-sections {
   display: block;
   visibility: visible;
   align-self: start;
+  margin: 0 -24px;
+  width: calc(100% + 48px);
 }
 
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
+  margin: 0;
+}
+
+header nav .nav-sections > ul > li {
+  position: relative;
+  font-weight: 600;
+  font-size: var(--body-font-size-m);
+  padding: 12px 24px;
+  border-bottom: 1px solid rgb(255 255 255 / 15%);
+}
+
+/* dropdown toggle button — full-width tap target with a right-aligned chevron */
+header nav .nav-drop-toggle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 44px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+header nav .nav-drop > .nav-drop-toggle::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentcolor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+header nav .nav-drop[aria-expanded='true'] > .nav-drop-toggle::after {
+  transform: rotate(-135deg);
+}
+
+/* dropdown panel: two columns (main + Popular) */
+header nav .nav-drop-panel {
+  display: none;
+}
+
+header nav .nav-drop-panel .nav-drop-heading {
+  font-weight: 400;
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+/* mobile: stacked accordion */
+header nav .nav-sections > ul > li > a {
+  display: inline-block;
+}
+
+header nav .nav-drop[aria-expanded='true'] .nav-drop-panel {
+  display: block;
+  padding: 12px 0 4px 12px;
+}
+
+header nav .nav-drop-panel ul li {
+  padding: 6px 0;
+  font-weight: 400;
   font-size: var(--body-font-size-s);
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 500;
+/* tools (badge, log in, search) */
+header nav .nav-tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-header nav .nav-sections ul > li > ul {
-  margin-top: 0;
+header nav .nav-tools img {
+  height: 88px;
+  width: auto;
 }
 
-header nav .nav-sections ul > li > ul > li {
-  font-weight: 400;
+header nav .nav-search {
+  display: flex;
+  align-items: center;
 }
 
+header nav .nav-search form {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  background: #fff;
+  border: 1px solid rgb(56 66 70);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+header nav .nav-search form:focus-within {
+  outline: 2px solid rgb(255 197 29);
+  outline-offset: 2px;
+}
+
+header nav .nav-search input {
+  border: 0;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: var(--body-font-size-s);
+  color: var(--text-color);
+  min-width: 140px;
+}
+
+header nav .nav-search button {
+  display: flex;
+  align-items: center;
+  border: 0;
+  background: #fff;
+  color: rgb(56 66 70);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+header nav .nav-search-icon {
+  display: block;
+}
+
+/* ===== Desktop ===== */
 @media (width >= 900px) {
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 24px;
+
+    /* positioning context for the full-width dropdown panels */
+    position: relative;
+  }
+
+  header nav .nav-hamburger {
+    display: none;
+    visibility: hidden;
+  }
+
   header nav .nav-sections {
     display: block;
     visibility: visible;
+    flex: 1 1 auto;
+  }
+
+  header nav[aria-expanded='true'] .nav-sections { align-self: unset; }
+
+  header nav .nav-sections > ul {
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+  }
+
+  /* items stay static so panels anchor to the full-width nav, not the li */
+  header nav .nav-sections > ul > li {
+    position: static;
+    padding: 0;
+    border-bottom: 0;
+    cursor: pointer;
     white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
   }
 
-  header nav[aria-expanded='true'] .nav-sections {
-    align-self: unset;
-  }
-
-  header nav .nav-sections .nav-drop {
+  /* top-level label carries its own inline chevron */
+  header nav .nav-sections .nav-drop > a {
     position: relative;
     padding-right: 16px;
-    cursor: pointer;
   }
 
-  header nav .nav-sections .nav-drop::after {
+  header nav .nav-sections .nav-drop > a::after {
     content: '';
     display: inline-block;
     position: absolute;
-    top: 0.5em;
-    right: 2px;
+    top: 0.35em;
+    right: 0;
     transform: rotate(135deg);
     width: 6px;
     height: 6px;
     border: 2px solid currentcolor;
-    border-radius: 0 1px 0 0;
     border-width: 2px 2px 0 0;
   }
 
-  header nav .nav-sections .nav-drop[aria-expanded='true']::after {
-    top: unset;
-    bottom: 0.5em;
-    transform: rotate(315deg);
+  header nav .nav-sections .nav-drop[aria-expanded='true'] > a::after {
+    top: 0.55em;
+    transform: rotate(-45deg);
   }
 
-  header nav .nav-sections ul {
+  /* Desktop: hover opens the panel; the toggle only covers the chevron on the
+     right of the label — the label link stays clickable and navigates. */
+  header nav .nav-drop-toggle {
+    position: absolute;
+    inset: 0 -4px auto auto;
+    width: 18px;
+    height: 100%;
+    opacity: 0;
+  }
+
+  /* white drawer constrained to the content width, left-aligned below nav */
+  header nav .nav-drop[aria-expanded='true'] .nav-drop-panel {
     display: flex;
-    gap: 24px;
-    margin: 0;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li {
-    flex: 0 1 auto;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li > ul {
-    display: none;
-    position: relative;
-  }
-
-  header nav .nav-sections .default-content-wrapper > ul > li[aria-expanded='true'] > ul {
-    display: block;
+    gap: 32px;
     position: absolute;
-    left: -24px;
-    width: 200px;
-    top: 150%;
-    padding: 16px;
-    background-color: var(--light-color);
-    white-space: initial;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: var(--content-max-width);
+    padding: 32px 40px;
+    background: #fff;
+    color: var(--text-color);
+    z-index: 10;
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul::before {
+  /* primary column: stacked solid-blue link buttons with a trailing chevron */
+  header nav .nav-drop-panel .nav-drop-main {
+    flex: 0 0 270px;
+  }
+
+  header nav .nav-drop-panel .nav-drop-main ul {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  header nav .nav-drop-panel .nav-drop-main a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--doc-blue);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-drop-panel .nav-drop-main a::after {
     content: '';
-    position: absolute;
-    top: -8px;
-    left: 16px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--light-color);
+    flex: none;
+    width: 8px;
+    height: 8px;
+    border: 2px solid currentcolor;
+    border-width: 2px 2px 0 0;
+    transform: rotate(45deg);
   }
 
-  header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
-    padding: 8px 0;
+  header nav .nav-drop-panel .nav-drop-main a:hover {
+    background: var(--doc-blue-hover);
+    text-decoration: none;
   }
-}
 
-/* tools */
-header nav .nav-tools {
-  grid-area: tools;
+  /* Popular column: bordered chips wrapping across rows */
+  header nav .nav-drop-panel .nav-drop-popular {
+    flex: 1 1 auto;
+  }
+
+  header nav .nav-drop-panel .nav-drop-popular ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  header nav .nav-drop-panel .nav-drop-popular ul li {
+    padding: 0;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  header nav .nav-drop-panel .nav-drop-popular a {
+    display: inline-flex;
+    align-items: center;
+    padding: 16px 24px;
+    border: 2px solid rgb(56 66 70);
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  header nav .nav-drop-panel .nav-drop-popular a:hover {
+    background: var(--doc-card-hover);
+    text-decoration: none;
+  }
+
+  header nav .nav-drop-panel .nav-drop-heading {
+    color: rgb(56 66 70);
+    font-size: 19px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+
+  header nav .nav-tools { flex: 0 0 auto; }
 }
