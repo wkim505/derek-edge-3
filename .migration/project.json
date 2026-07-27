@@ -1,0 +1,12 @@
+{
+  "sites": {
+    "derek-edge-3": {
+      "previewOrg": "wkim505",
+      "previewSite": "derek-edge-3",
+      "aemSitePath": "/content/derek-edge-3",
+      "aemAssetsFolderPath": "/content/dam/derek-edge-3",
+      "aemSiteName": "derek-edge-3",
+      "aemSiteTitle": "Derek Sandbox"
+    }
+  }
+}
