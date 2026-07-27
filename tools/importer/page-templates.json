@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.doc.govt.nz/"
+      ],
+      "representativeUrl": "https://www.doc.govt.nz/",
+      "coverageGaps": [],
+      "description": "Site homepage: full-width hero image with overlay title and quick-link buttons, followed by a promo/blog two-column panel and multi-column card grids for featured content and media releases.",
+      "blocks": [
+        {
+          "name": "hero-quicklinks",
+          "instances": [
+            "section.doc-main-layout__hero",
+            ".hero.group.has-image"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            ".doc-homepage-layout__content_top"
+          ]
+        },
+        {
+          "name": "cards-news",
+          "instances": [
+            ".doc-homepage-layout__content_bottom > div.widget.group",
+            ".doc-homepage-layout__content_bottom .widget"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "hero",
+          "name": "hero",
+          "selector": [
+            "section.doc-main-layout__hero"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-quicklinks"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "content-top",
+          "name": "content-top",
+          "selector": [
+            ".doc-homepage-layout__content_top"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "content-bottom",
+          "name": "content-bottom",
+          "selector": [
+            ".doc-homepage-layout__content_bottom"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-news"
+          ],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

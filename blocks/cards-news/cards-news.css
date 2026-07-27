@@ -1,0 +1,90 @@
+/* cards-news — uniform article cards (image / linked heading / description)
+   Design migrated from doc.govt.nz homepage "Featured" & "Media releases" grids.
+   Values sourced from getComputedStyle on the source cards. */
+
+.cards-news > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;   /* single column on mobile */
+  gap: 0;                       /* source columnGap/rowGap: normal (0) */
+}
+
+/* card item (source: .card bg-white pt-3 px-2 flex flex-col items-start) */
+.cards-news > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--doc-card-bg);   /* rgb(255 255 255) */
+  padding: 24px 16px 0;                    /* pt-3 px-2 pb-0 */
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  transition: background-color 0.15s ease;
+}
+
+.cards-news > ul > li:hover {
+  background-color: var(--doc-card-hover);   /* rgb(224 240 235) */
+}
+
+/* image cell */
+.cards-news .cards-news-card-image {
+  width: 100%;
+  line-height: 0;
+}
+
+.cards-news .cards-news-card-image p {
+  margin: 0;
+}
+
+.cards-news .cards-news-card-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.572;      /* measured 203 x 129 */
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* text cell */
+.cards-news .cards-news-card-body {
+  width: 100%;
+}
+
+.cards-news .cards-news-card-body h3 {
+  margin: 8px 0 0;
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  color: var(--text-color);
+  text-transform: none;
+}
+
+.cards-news .cards-news-card-body h3 a:any-link {
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cards-news .cards-news-card-body h3 a:hover {
+  text-decoration: underline;
+  color: var(--text-color);
+}
+
+.cards-news .cards-news-card-body p {
+  margin: 8px 0 16px;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color);
+}
+
+/* two-up grid on tablet and up (matches source column layout) */
+@media (width >= 600px) {
+  .cards-news > ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}

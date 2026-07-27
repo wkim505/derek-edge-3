@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-07-27T03:38:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.doc.govt.nz/",
+    "originPage": "DOC homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "two side-by-side panels (promo feature + listing widget)",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "two-up side-by-side panels of heterogeneous content",
+      "promo feature next to a listing/widget",
+      "any 2-column layout mixing image, heading, text and links"
+    ],
+    "notSuitableFor": [
+      "uniform repeating card grids (use cards instead)",
+      "single-column stacked content",
+      "more than 2 columns of equal-weight items"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-27T03:38:00.000Z"
+  }
+}

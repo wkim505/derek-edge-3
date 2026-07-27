@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-news",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-27T03:38:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.doc.govt.nz/",
+    "originPage": "DOC homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "grid of image + linked heading + description cards",
+    "buttonCount": 0,
+    "imageCount": 4
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "news/article/media-release listings",
+      "featured content grids of uniform image + heading + text items",
+      "any repeating set of clickable article cards"
+    ],
+    "notSuitableFor": [
+      "heterogeneous side-by-side panels (use columns)",
+      "single feature/highlight items",
+      "cards with no images"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/index"],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-27T03:38:00.000Z"
+  }
+}

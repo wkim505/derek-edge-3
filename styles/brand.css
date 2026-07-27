@@ -1,0 +1,27 @@
+:root {
+  --heading-font-family: "Zilla Slab", "Courier New", serif;
+  --body-font-family: "Clear Sans", -apple-system, "Segoe UI", roboto, helvetica, arial, sans-serif;
+  --background-color: rgb(245 244 242);
+  --text-color: rgb(56 66 70);
+  --link-color: rgb(56 66 70);
+  --link-hover-color: rgb(0 100 80);
+  --section-padding: 0;
+  --nav-height: 26px;
+  --content-max-width: 961px;
+  --heading-size-xxl: 45px;
+  --heading-size-xl: 38px;
+  --heading-size-l: 24px;
+  --heading-size-m: 20px;
+  --heading-size-s: 18px;
+  --heading-size-xs: 16px;
+
+  /* DOC brand palette (sampled from source) */
+  --doc-green: rgb(0 100 80);
+  --doc-green-dark: rgb(0 74 59);
+  --doc-green-button: rgb(25 64 54);
+  --doc-gold: rgb(255 199 44);
+  --doc-card-bg: rgb(255 255 255);
+  --doc-card-hover: rgb(224 240 235);
+  --doc-blue: rgb(21 121 183);
+  --doc-blue-hover: rgb(15 90 140);
+}
