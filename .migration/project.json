@@ -8,7 +8,8 @@
       "aemAssetsFolderPath": "/content/dam/derek-edge-3",
       "aemSiteName": "derek-edge-3",
       "aemSiteTitle": "Derek Sandbox",
-      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json",
+      "baseUrl": "https://www.doc.govt.nz/"
     }
   }
 }
