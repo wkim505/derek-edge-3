@@ -16,6 +16,22 @@ async function fetchNav(navPath) {
   return tmp;
 }
 
+/**
+ * Ensure a nav link shows its logo. The authored nav fragment may deliver the
+ * link with no <img> (e.g. when published from the AEM author content source),
+ * so fall back to the repo-hosted SVG which is served on every environment.
+ */
+function ensureLogo(link, src, alt) {
+  if (!link) return;
+  let img = link.querySelector('img');
+  if (!img) {
+    img = document.createElement('img');
+    link.append(img);
+  }
+  if (!img.getAttribute('src')) img.src = src;
+  if (!img.getAttribute('alt')) img.alt = alt;
+}
+
 /** Close every open dropdown in the nav. */
 function closeAllDropdowns(nav) {
   nav.querySelectorAll('.nav-drop[aria-expanded="true"]').forEach((li) => {
@@ -140,10 +156,11 @@ export default async function decorate(block) {
     if (section) section.classList.add(`nav-${c}`);
   });
 
-  // Brand: strip button styling from the logo link.
+  // Brand: strip button styling from the logo link, ensure the logo renders.
   const navBrand = nav.querySelector('.nav-brand');
   if (navBrand) {
     navBrand.querySelectorAll('a').forEach((a) => a.classList.remove('button'));
+    ensureLogo(navBrand.querySelector('a'), '/icons/doc-logo.svg', 'Department of Conservation | Te Papa Atawhai');
   }
 
   // Sections: mark items with a submenu, wrap the two sub-lists into a panel.
@@ -179,6 +196,8 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
     navTools.querySelectorAll('a').forEach((a) => a.classList.remove('button'));
+    const abnLink = navTools.querySelector('a[href*="always-be-naturing"]');
+    ensureLogo(abnLink, '/icons/abn-badge.svg', 'Always Be Naturing');
     navTools.append(buildSearch());
   }
 
