@@ -278,5 +278,34 @@
         "valueType": "string"
       }
     ]
+  },
+  {
+    "id": "page-feedback",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "question",
+        "label": "Question",
+        "description": "Defaults to \"Was this information helpful?\" when left empty",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "positive",
+        "label": "Thank you (Yes)",
+        "description": "Shown after a positive answer",
+        "value": ""
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "negative",
+        "label": "Thank you (No)",
+        "description": "Shown after a negative answer",
+        "value": ""
+      }
+    ]
   }
 ]

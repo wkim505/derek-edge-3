@@ -1,0 +1,61 @@
+/* page-feedback — one-click "was this page useful?" widget.
+   Hidden until decoration completes, so the authored rows are never visible and the
+   block simply does not appear when JavaScript does not run. */
+.page-feedback {
+  display: none;
+}
+
+.page-feedback[data-block-status="loaded"] {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px 16px;
+  border-top: 2px solid var(--doc-green);
+  background-color: var(--doc-card-bg);
+}
+
+.page-feedback .page-feedback-question {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+.page-feedback .page-feedback-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.page-feedback .page-feedback-actions button {
+  min-width: 96px;
+}
+
+.page-feedback .page-feedback-status {
+  margin: 16px 0 0;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+/* The live region is present from decoration time so that it is reliably announced,
+   which means it must take up no space while it is still empty. */
+.page-feedback .page-feedback-status:empty {
+  margin: 0;
+}
+
+/* Desktop: question and buttons read as a single compact band. */
+@media (width >= 600px) {
+  .page-feedback[data-block-status="loaded"] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .page-feedback .page-feedback-actions,
+  .page-feedback .page-feedback-status {
+    margin: 0 0 0 24px;
+  }
+}
