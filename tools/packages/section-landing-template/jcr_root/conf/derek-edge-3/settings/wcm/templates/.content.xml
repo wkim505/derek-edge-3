@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- templates folder. Present so FileVault creates the intermediate node; the
-     workspace filter only owns the section-landing child, so sibling templates
-     already in this folder on the target are preserved. -->
-<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
-          xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
-          jcr:primaryType="sling:Folder"/>
