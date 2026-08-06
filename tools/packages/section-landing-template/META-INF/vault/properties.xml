@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<!--
+  FileVault package metadata for the "Section Landing" editable template.
+
+  Installing this package on an AEM Cloud author registers the template at
+  /conf/derek-edge-3/settings/wcm/templates/section-landing (see filter.xml).
+  Version is bumped manually when the scaffold or policy changes.
+-->
+<properties>
+  <entry key="group">derek-edge-3</entry>
+  <entry key="name">section-landing-template</entry>
+  <entry key="version">1.0.0</entry>
+  <entry key="description">Section Landing editable template for the derek-edge-3 Edge Delivery site: hero banner with overlay title, intro, a grid of image+text child-page cards, and a related-links row.</entry>
+  <entry key="createdBy">AEMY Studio</entry>
+  <entry key="packageType">content</entry>
+  <entry key="requiresRoot">false</entry>
+  <entry key="acHandling">merge</entry>
+</properties>

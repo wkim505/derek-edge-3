@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Workspace filter for the "Section Landing" template package.
+
+  Scoped to the single template node so installing this package creates/updates
+  ONLY /conf/derek-edge-3/settings/wcm/templates/section-landing. The parent
+  .../templates folder is a sibling-safe intermediate node (see its .content.xml),
+  so any other templates already present on the target are preserved.
+-->
+<workspaceFilter version="1.0">
+  <filter root="/conf/derek-edge-3/settings/wcm/templates/section-landing"/>
+</workspaceFilter>

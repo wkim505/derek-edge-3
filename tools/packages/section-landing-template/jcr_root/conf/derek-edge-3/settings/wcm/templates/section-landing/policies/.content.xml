@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Structure/policy for the "Section Landing" template.
+  Installed at: /conf/derek-edge-3/settings/wcm/templates/section-landing/policies
+
+  Declares the components an author may add on a page built from this template.
+  Mirrors the Universal Editor component-filters.json `section` filter
+  (models/_section.json #/filters). Keep the two in sync.
+-->
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          jcr:primaryType="nt:unstructured">
+  <jcr:content jcr:primaryType="nt:unstructured">
+    <root jcr:primaryType="nt:unstructured">
+      <section jcr:primaryType="nt:unstructured"
+               components="[text,image,button,title,hero,hero-quicklinks,cards,cards-news,columns,columns-promo,fragment,page-feedback]"/>
+    </root>
+  </jcr:content>
+</jcr:root>

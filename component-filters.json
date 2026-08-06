@@ -13,8 +13,11 @@
       "button",
       "title",
       "hero",
+      "hero-quicklinks",
       "cards",
+      "cards-news",
       "columns",
+      "columns-promo",
       "fragment",
       "page-feedback"
     ]
