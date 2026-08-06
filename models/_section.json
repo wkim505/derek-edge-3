@@ -33,6 +33,10 @@
             {
               "name": "Highlight",
               "value": "highlight"
+            },
+            {
+              "name": "Light Grey",
+              "value": "light-grey"
             }
           ]
         }
@@ -48,8 +52,11 @@
         "button",
         "title",
         "hero",
+        "hero-quicklinks",
         "cards",
+        "cards-news",
         "columns",
+        "columns-promo",
         "fragment",
         "page-feedback"
       ]
