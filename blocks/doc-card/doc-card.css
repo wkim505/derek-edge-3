@@ -1,0 +1,112 @@
+/* Import component-specific tokens */
+@import url('./doc-card-tokens.css');
+
+/* doc-card — "Teaser Card": full-bleed background image with title + description
+   overlaid at the bottom over a legibility gradient.
+   Design migrated from Figma node 1525:60227. All values reference tokens. */
+
+.doc-card > ul {
+  list-style: none;
+  margin: 0;
+  padding: var(--doc-card-padding);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--doc-card-min-width), 1fr));
+  gap: var(--doc-card-gap);
+  background: var(--doc-card-background);
+}
+
+/* card item — the full-bleed image container */
+.doc-card > ul > li {
+  position: relative;
+  display: block;
+  aspect-ratio: var(--doc-card-aspect-ratio);
+  padding: var(--doc-card-item-padding);
+  margin: 0;
+  border: var(--doc-card-item-border-width) var(--doc-card-item-border-style) var(--doc-card-item-border-color);
+  border-radius: var(--doc-card-item-border-radius);
+  background: var(--doc-card-item-background);
+  box-shadow:
+    var(--doc-card-item-shadow-x)
+    var(--doc-card-item-shadow-y)
+    var(--doc-card-item-shadow-blur)
+    var(--doc-card-item-shadow-spread)
+    var(--doc-card-item-shadow-color);
+  overflow: hidden;
+  transition: box-shadow var(--doc-card-transition-duration) var(--doc-card-transition-timing);
+}
+
+/* legibility gradient over the image */
+.doc-card > ul > li::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--doc-card-overlay-gradient);
+  pointer-events: none;
+}
+
+/* image cell — fills the card */
+.doc-card .doc-card-card-image {
+  position: absolute;
+  inset: 0;
+  line-height: 0;
+}
+
+.doc-card .doc-card-card-image picture,
+.doc-card .doc-card-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* text cell — overlaid at the bottom, above the gradient */
+.doc-card .doc-card-card-body {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--doc-card-content-gap);
+  margin: 0;
+  padding:
+    var(--doc-card-content-padding-top)
+    var(--doc-card-content-padding-right)
+    var(--doc-card-content-padding-bottom)
+    var(--doc-card-content-padding-left);
+}
+
+/* title */
+.doc-card .doc-card-card-body :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0 0 var(--doc-card-heading-margin-bottom);
+  font-family: var(--doc-card-heading-font-family);
+  font-size: var(--doc-card-heading-font-size);
+  font-weight: var(--doc-card-heading-font-weight);
+  font-style: var(--doc-card-heading-font-style);
+  line-height: var(--doc-card-heading-line-height);
+  letter-spacing: var(--doc-card-heading-letter-spacing);
+  text-transform: var(--doc-card-heading-text-transform);
+  color: var(--doc-card-heading-color);
+}
+
+/* description */
+.doc-card .doc-card-card-body p {
+  margin: 0 0 var(--doc-card-body-margin-bottom);
+  font-family: var(--doc-card-body-font-family);
+  font-size: var(--doc-card-body-font-size);
+  font-weight: var(--doc-card-body-font-weight);
+  font-style: var(--doc-card-body-font-style);
+  line-height: var(--doc-card-body-line-height);
+  letter-spacing: var(--doc-card-body-letter-spacing);
+  color: var(--doc-card-body-color);
+}
+
+/* links inside the card stretch to make the whole card clickable */
+.doc-card .doc-card-card-body a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.doc-card .doc-card-card-body a:hover {
+  text-decoration: underline;
+}

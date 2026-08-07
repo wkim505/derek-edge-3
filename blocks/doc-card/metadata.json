@@ -1,0 +1,39 @@
+{
+  "variantName": "doc-card",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-08-07T00:00:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.figma.com/design/RGpLq9Ox8K60cHwR7cJSBl/DOC-Modernising-Digital-Platform--Internal-",
+    "originPage": "Figma — Teaser Card component (node 1525:60227)",
+    "blockPosition": "content"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "compact",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "full-bleed background image with title + description overlaid at bottom over a legibility gradient",
+    "buttonCount": 0,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "teaser/promo cards where text sits over a background image",
+      "image-led feature tiles with short title + supporting line",
+      "grids of visually rich clickable cards"
+    ],
+    "notSuitableFor": [
+      "text-above-image article cards (use cards-news)",
+      "cards with no background image",
+      "heterogeneous side-by-side panels (use columns)"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/doc-card"],
+    "reuseCount": 1,
+    "lastUsed": "2026-08-07T00:00:00.000Z"
+  }
+}
