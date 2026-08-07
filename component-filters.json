@@ -16,8 +16,7 @@
       "cards",
       "columns",
       "fragment",
-      "page-feedback",
-      "doc-card"
+      "page-feedback"
     ]
   },
   {
@@ -60,12 +59,6 @@
       "image",
       "button",
       "title"
-    ]
-  },
-  {
-    "id": "doc-card",
-    "components": [
-      "card"
     ]
   }
 ]
